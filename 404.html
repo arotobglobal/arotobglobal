@@ -11,6 +11,20 @@
 </script>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script>
+  /* Forward old Squarespace URLs to the matching new page (GitHub Pages has no server redirects). */
+  (function(){
+    try{
+      var p = location.pathname.replace(/\/+$/,'').toLowerCase();
+      var dest = null;
+      if (/\/shop(\/|$)/.test(p)) dest = '/products.html';
+      else if (p.indexOf('/products-services')===0 || p.indexOf('/services')===0) dest = '/products.html';
+      else if (p.indexOf('/appointment')===0 || p.indexOf('/book')===0) dest = '/apply.html';
+      else if (p.indexOf('/support-contact')===0 || p.indexOf('/contact')===0) dest = '/support.html';
+      if (dest && dest !== location.pathname) location.replace(dest);
+    }catch(e){}
+  })();
+</script>
 <title>Page not found, Arotob</title>
 <meta name="description" content="The page you are looking for could not be found. Return to Arotob Global Services, smart metering for Ekiti State and Nigeria." />
 <meta name="theme-color" content="#f6f3ec" />
